@@ -1,0 +1,11 @@
+<div id="lastposts">
+<h3>Derniers billets</h3>
+<ul>
+	<% for post in sidebar.recent_posts -%>
+	            <li>
+					<%= link_to_permalink post, post.title %> <%= post.published_comments.size %> <img src="http://t37.net/images/comment.gif" alt="<%= post.published_comments.size %> commentaires" title="<%= post.published_comments.size %> commentaires" />
+	            </li>
+	        <% end %>
+	    </ul>
+	</div>
+	

@@ -1,0 +1,12 @@
+<% @i = 0 %>
+<% if controller.action_name == "tag" and params[:id] %>
+	<% @articles = Tag.find_by_name(params[:id], :limit =>1500).articles %>
+	<%= render :partial => 'article', :collection => @articles %>
+<% elsif controller.action_name == "category" and params[:id] %>
+<% @articles = Category.find_by_permalink(params[:id], :limit =>1500).articles %>
+<%= render :partial => 'article', :collection => @articles %>
+
+<% else %>
+		<%= render :partial => 'article', :collection => @articles %>
+    <%= will_paginate @articles, { :previous_label => 'Précédent', :next_label => 'Suivant'  } %>
+<% end %>

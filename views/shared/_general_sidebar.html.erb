@@ -1,0 +1,55 @@
+<div id="adsense_sidebar">
+<script type="text/javascript">
+    display_adsense("pub-4977888525585882", "7699473213", 160, 600);
+</script>
+</div>
+<h3>Chercher</h3>
+<div id="search" class="sidebarelement">
+<p>Le <em>live search</em> affiche les résultats à mesure que vous entrez votre recherche dans le formulaire.</p>
+    <% form_tag({ :controller => 'articles', :action => 'search' },
+                { :method => 'get', :id => 'sform' }) do -%>
+      <p><input type="text" id="q" name="q" value="" /><label for="q">
+<img src="http://t37.net/images/search.png" alt="chercher" title="Entrez vos criteres de recherche" /> </label>
+</p>
+    <% end -%>
+
+    <div id="loading" class="loading" style="display:none;">Searching...</div>
+    <div id="results" class="results"></div>
+  <%= observe_field 'q',
+                    :url        => { :controller => 'live', :action => 'search' },
+                    :frequency  => 1,
+                    :loading    => "Element.show('loading')",
+                    :complete   => "Element.hide('loading')",
+                    :update     => 'results',
+                    :with       => "'q=' + escape($F('q'))" %>
+</div>
+
+<% @navcats ||= Category.find_all_with_article_counters -%>     
+
+<h3 id="title_categories">Catégories</h3>
+<div class="sidebarelement">
+<p>Cliquez sur un des liens pour parcourir les articles classés par grande catégorie.</p>
+<ul id="thematiques">
+<% for category in @navcats -%>
+        <li><%= link_to h(category.name), "http://t37.net/category/#{category.permalink}/", {:title => "Lire les billets classés dans la catégorie #{category.name}" } %> </li>
+<% end -%>
+</ul>
+</div>
+  <h3>Les indispensables</h3>
+<div class="sidebarelement">
+  <p>Des ressources indispensables à lire quotidiennement, ou presque.</p>
+  <ul>
+    <li><a href="http://www.biologeek.com/journal/">Biologeek</a></li>
+    <li><a href="http://prendreuncafe.com/blog/">Prendre un caf&eacute;</a></li>
+    <li><a href="http://alheim.7el.net">Alexandre Heimburger</a></li>
+    <li><a href="http://www.referencement-blog.net/">R&eacute;f&eacute;rencement blog</a></li>
+    <li><a href="http://bokardo.com/">Bokardo</a> [en]</li>
+    <li><a href="http://www.boxesandarrows.com/">Boxes and arrows</a> [en]</li>
+    <li><a href="http://performance.survol.fr/">Performances web</a></li>
+    <li><a href="http://ajblog.fr/">Webdesign et petite entreprise</a></li>
+  </ul>
+</div>
+
+
+<%= render_sidebars TagSidebar.new(:maximum_tags => 30) %>
+

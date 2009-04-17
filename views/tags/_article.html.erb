@@ -1,0 +1,17 @@
+<div class="atomentry" id="article-<%= article.id %>">
+  <h2 class="title">
+    <%= link_to_permalink(article,article.title) %>
+  </h2>
+
+  <p class="author">
+    Le 
+    <abbr class="published" title="<%= article.published_at.xmlschema %>">
+      <%= "#{article.published_at.strftime('%d')} #{_(article.published_at.strftime('%B'))} #{article.published_at.strftime('%Y à %Hh%M')}" %>
+    </abbr> |
+    <%= "#{article.published_comments.size} #{pluralize(article.published_comments.size, 'commentaire', 'commentaire', 'commentaires')}" %>
+  </p>
+
+  <div class="content">
+    <%= article.html(:body) %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div id="secondfooter">
+<% unless sidebar.bestof.blank? -%>
+<div id="populars">
+<h3>Articles les plus lus</h3>
+<ul>
+<% for article in sidebar.bestof -%>
+  <li><%= link_to h(article.title), "#{this_blog.base_url}/#{article.permalink}.html"  %> <%= article.comments.count %> <img src="http://t37.net/images/comment.gif" alt="<%= article.published_comments.size %> commentaires" title="<%= article.published_comments.size %> commentaires" /></li>
+<% end -%>
+</ul>
+</div>
+<% end %>

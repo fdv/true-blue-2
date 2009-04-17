@@ -1,0 +1,20 @@
+<li class="comment<%= 'odd' unless @comid > 0 %> <%= 'fdv' if comment.user_id? %>" id="comment-<%= comment.id %>">
+	<div class="commentbg">
+		<p class="commentauthor">
+    		<%= (comment.url.blank?) ? h(comment.author) : link_to(h(comment.author), comment.url, :rel => "nofollow") %>
+    		<abbr title="<%= comment.created_at.xmlschema %>"><%= distance_of_time_in_words comment.article.published_at, comment.created_at %> later:</abbr>
+  		</p>
+  		<div class="content">
+    		<%= comment.html %>
+  		</div>
+  		<% unless comment.published -%>
+  		<div class="spamwarning"><%= _("This comment has been flagged for moderator approval.") %></div>
+  		<% end -%>
+	</div>
+</li>
+
+<% if @comid == 0 
+	@comid = 1
+	else
+		@comid = 0
+		end %>

@@ -1,0 +1,24 @@
+<% 
+breadcrumb = ""
+if controller.controller_name == "articles" and controller.action_name == "index" and !params[:page]
+  breadcrumb << "Accueil"
+elsif controller.action_name == "redirect" and @article
+  breadcrumb << "Thématiques : "
+  unless @article.tags.empty?
+    breadcrumb <<  @article.tags.map { |tag| 
+      link_to("#{tag.display_name}", tag.permalink_url, :rel => "tag nofollow", :title => "Cliquez pour voir les billets traitant de #{tag.display_name}") }.sort.join(", ")
+  end
+else
+  breadcrumb << link_to("Accueil", {:controller => "articles", :action => "index"}, :title => "Cliquez pour revenir à l'accueil")
+  breadcrumb << " &gt; "
+end
+
+if controller.action_name == "index" and params[:page]
+  breadcrumb << "Page #{params[:page]}" 
+elsif controller.action_name == "view_page"
+  breadcrumb << params[:name].to_s
+elsif controller.action_name == 'archives'
+  breadcrumb << "Archives"
+end 
+%>
+<%= content_tag(:li, breadcrumb) %>
