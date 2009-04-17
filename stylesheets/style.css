@@ -656,7 +656,7 @@ ul#taglist li {
 	margin-right: 20px;
 }
 
-.pagination span a.prev_page, .pagination span a.next_page {
+a.prev_page, a.next_page {
 	color: #DE5026;
 	font-weight: bold;
 }
