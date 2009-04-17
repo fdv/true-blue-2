@@ -18,8 +18,6 @@
 		<%= text_area 'comment', 'body' %>
 	</p>
 	<p>
-    <%= submit_tag 'Valider', :id => 'form-submit-button', :class => 'submit', :onclick => "$('commentform').onsubmit();return false;" %>
-    <%= image_tag '/images/theme/spinner.gif', :id => 'comment_loading', :style => 'display:none' %>
-
+    <%= submit_tag 'Valider', :id => 'form-submit-button', :class => 'submit' %>
   </p>
 <% end %>
