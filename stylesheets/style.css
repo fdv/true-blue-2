@@ -652,8 +652,8 @@ ul#taglist li {
 	text-decoration: none;
 }
 
-.pagination span.prev_page {
-	padding-right: 20px;
+.pagination .prev_page {
+	margin-right: 20px;
 }
 
 .pagination span a.prev_page, .pagination span a.next_page {
@@ -661,6 +661,6 @@ ul#taglist li {
 	font-weight: bold;
 }
 
-.pagination span.next_page {
+.pagination .next_page {
 	padding-left: 20px;
 }
