@@ -343,7 +343,7 @@ input#q {
 	color: #fff;
 }
 
-#nav_articles dd.active a, #nav_downloads dd.active a, #nav_contact dd.active a, #nav_rss dd.active a, #nav_email dd.active a {
+dd.active, li.active {
 	text-decoration: underline;
 	color: #fff;
 }
@@ -586,10 +586,6 @@ ol#commentList ul li {
 	text-decoration: none;
 }
 
-#bottomnav a.active {
-	text-decoration: underline;
-}
-
 #bottomnavcontainer {
 	margin: 0;
 	width: 990px;
@@ -663,4 +659,8 @@ ul#taglist li {
 
 .pagination .next_page {
 	padding-left: 20px;
+}
+
+.clear {
+	clear: both;
 }
