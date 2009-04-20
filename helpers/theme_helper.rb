@@ -26,3 +26,25 @@ end
 def render_active_tags
   return "class='active'" if controller.controller_name == 'tags'
 end
+
+def render_similar_posts(article)
+  unless article.tags.empty?
+  	mylist = Array.new
+  	article.tags.each do |tag| 
+  		mylist += Tag.find_by_name(tag.name).articles
+  	end
+    mylist = mylist.uniq
+    tablo = mylist.sort_by {rand}[0,5]
+
+    html = "<div id='related'>"
+    html << "<h3>À lire également</h3>"
+    html << "<p>Si <em>#{article.title}</em> vous a intéressé, vous pouvez poursuivre votre lecture avec ces billets similaires :</p>"
+  	html << "<ul>"
+
+    tablo.each do |article|
+      html << "<li>#{link_to article.title, article.permalink_url}</li>"
+    end
+    html << "</ul>"
+    html << "</div>"
+  end
+end

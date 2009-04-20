@@ -15,6 +15,10 @@
   <% end -%>
 </div>
 
+<% if controller.controller_name == 'redirect' and @article -%>
+
+<% end -%>
+
 <% @navcats ||= Category.find_all_with_article_counters -%>     
 
 <h3 id="title_categories">Catégories</h3>
