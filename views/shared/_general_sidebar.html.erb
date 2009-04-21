@@ -15,10 +15,6 @@
   <% end -%>
 </div>
 
-<% if controller.controller_name == 'redirect' and @article -%>
-
-<% end -%>
-
 <% @navcats ||= Category.find_all_with_article_counters -%>     
 
 <h3 id="title_categories">Catégories</h3>
@@ -27,7 +23,7 @@
     
     <ul id="thematiques">
     <% for category in @navcats -%>
-      <li><%= link_to h(category.name), "#{this_blog.base_url}/#{category.permalink}/", {:title => "Lire les articles traitant de #{category.name}" } %></li>
+      <li><%= link_to h(category.name), "#{category.permalink_url}/", {:title => "Lire les articles traitant de #{category.name}" } %></li>
     <% end -%>
     </ul>
   </div>
