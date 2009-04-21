@@ -2,7 +2,7 @@
 	<div class="commentbg">
 		<p class="commentauthor">
     		<%= (comment.url.blank?) ? h(comment.author) : link_to(h(comment.author), comment.url, :rel => "nofollow") %>
-    		<abbr title="<%= comment.created_at.xmlschema %>"><%= distance_of_time_in_words comment.article.published_at, comment.created_at %> later:</abbr>
+    		<%= distance_of_time_in_words comment.article.published_at, comment.created_at %> plus tard :
   		</p>
   		<div class="content">
     		<%= comment.html %>
@@ -13,8 +13,4 @@
 	</div>
 </li>
 
-<% if @comid == 0 
-	@comid = 1
-	else
-		@comid = 0
-		end %>
+<% @comid = @comid == 0 ? 1 : 0 %>

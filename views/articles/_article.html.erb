@@ -1,28 +1,23 @@
 <div class="atomentry" id="article-<%= article.id %>">
-<% if (controller.action_name.include? 'redirect') -%>
-<div id="adsense_top">
-<script type="text/javascript">
-    display_adsense("pub-4977888525585882", "3292861530", 468, 60);
-</script>
-</div>
-<h1>
-  <%= link_to_permalink(article,article.title) %>
-</h1>
-    
-<% else %> 
-  <h2 class="title">  
-    <%= link_to_permalink(article,article.title) %>
-  </h2>
+  <% if (controller.controller_name.include? 'redirect') -%>
+  <div id="adsense_top">
+    <script type="text/javascript">
+      display_adsense("pub-4977888525585882", "3292861530", 468, 60);
+    </script>
+  </div>
+  <h1><%= link_to_permalink(article,article.title) %></h1>
+  <% else %> 
+  <h2 class="title"><%= link_to_permalink(article,article.title) %></h2>
 <% end%>
 
   <p class="author">
     Le 
     <%= "#{article.published_at.strftime('%d')} #{_(article.published_at.strftime('%B'))} #{article.published_at.strftime('%Y à %Hh%M')}" %> |
     <%= category_links(article) unless article.categories.empty? %> |
-    <% if controller.action_name.include? 'show' -%>
-    <%= "#{article.published_comments.size} #{pluralize(article.published_comments.size, 'commentaire', 'commentaire', 'commentaires')}" %>
+    <% if controller.controller_name.include? 'redirect' -%>
+    <%= pluralize_comments article.published_comments.size %>
     <% else -%>
-    <%= link_to_permalink(article, "#{article.published_comments.size} #{pluralize(article.published_comments.size, 'commentaire', 'commentaire', 'commentaires')}" ,'commentaires', '',  'nofollow') %>
+    <%= link_to_permalink(article, pluralize_comments(article.published_comments.size), '',  'nofollow') %>
     <% end -%>
   </p>
 
@@ -39,7 +34,7 @@
     <% if article.extended? -%>
     <div class="extended">
       <% if controller.action_name == 'index' -%>
-      <p><%= link_to_permalink article,"&raquo; Lire la suite", '', '', 'nofollow' %></p>
+      <p class="next"><%= link_to_permalink article,"&raquo; Lire la suite", '', '', 'nofollow' %></p>
       <% else -%>
       <%= article.html(:extended) %>
       <% end -%>
