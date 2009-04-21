@@ -229,6 +229,7 @@ table {
 	padding: 3px 0 0 10px;
 	color: #de5026;
 	margin-bottom: 0;
+	font-weight: normal;
 }
 
 #sidebar p {
@@ -380,10 +381,11 @@ dd.active, li.active {
 #content h2.title,
 #content h1,
 h3.archivemonth {
-	padding-top: 25px;
-	font-size: 22px;
+	padding-top: 20px;
+	font-size: 16px;
 	color: #2971a7;
 	line-height: 1em;
+	font-weight: normal;
 }
 
 
