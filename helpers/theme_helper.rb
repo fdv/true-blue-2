@@ -52,3 +52,8 @@ end
 def pluralize_comments(comments)
   "#{comments} #{pluralize(comments, 'commentaire', 'commentaire', 'commentaires')}"
 end
+
+def category_name(id)
+  category = Category.find_by_permalink(id)
+  category.name
+end

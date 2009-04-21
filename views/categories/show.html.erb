@@ -1,0 +1,9 @@
+<h1><%= link_to category_name(params[:id]), "#{this_blog.base_url}/category/#{params[:id]}" %></h1>
+
+<div id="description">  
+  <%= @description %>
+</div>
+
+<%= render :partial => 'article', :collection => @articles %>
+
+<%= will_paginate @articles, { :previous_label => 'Précédent', :next_label => 'Suivant'  } %>

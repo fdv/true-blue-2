@@ -1,5 +1,5 @@
 <div class="atomentry" id="article-<%= article.id %>">
-<% if (controller.action_name.include? 'show') -%>
+<% if (controller.action_name.include? 'redirect') -%>
 <div id="adsense_top">
 <script type="text/javascript">
     display_adsense("pub-4977888525585882", "3292861530", 468, 60);
@@ -17,9 +17,7 @@
 
   <p class="author">
     Le 
-    <abbr class="published" title="<%= article.published_at.xmlschema %>">
-      <%= "#{article.published_at.strftime('%d')} #{_(article.published_at.strftime('%B'))} #{article.published_at.strftime('%Y à %Hh%M')}" %>
-    </abbr> |
+    <%= "#{article.published_at.strftime('%d')} #{_(article.published_at.strftime('%B'))} #{article.published_at.strftime('%Y à %Hh%M')}" %> |
     <%= category_links(article) unless article.categories.empty? %> |
     <% if controller.action_name.include? 'show' -%>
     <%= "#{article.published_comments.size} #{pluralize(article.published_comments.size, 'commentaire', 'commentaire', 'commentaires')}" %>
