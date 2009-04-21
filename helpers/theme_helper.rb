@@ -5,7 +5,7 @@ end
 def render_active_archives
   if controller.controller_name == 'articles'
     if controller.action_name == 'index'
-      return if params[:page].empty?
+      return unless params[:page]
     else
       return "class='active'" 
     end
@@ -47,4 +47,8 @@ def render_similar_posts(article)
     html << "</ul>"
     html << "</div>"
   end
+end
+
+def pluralize_comments(comments)
+  "#{comments} #{pluralize(comments, 'commentaire', 'commentaire', 'commentaires')}"
 end
