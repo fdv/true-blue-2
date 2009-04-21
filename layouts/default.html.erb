@@ -10,7 +10,7 @@
   <link rel="icon" href="/favicon.png" type="image/png" /> 
 
   <%= stylesheet_link_tag "/stylesheets/theme/style", :media => 'all' %>
-  <script type="text/javascript" src="/javascripts/application.js"></script>
+  <script type="text/javascript" src="/javascripts/theme/trueblue.js"></script>
   <%= page_header %>
 </head>
 <body>
@@ -22,7 +22,7 @@
         <% else %>
 	      <p class='title'><%= link_to(this_blog.blog_name, this_blog.base_url) %></p>
         <% end %>
-        <p><%= this_blog.blog_description %></p>
+        <p><%= this_blog.blog_subtitle %></p>
       </div>
     </div>
     <div id='page'>
@@ -52,7 +52,7 @@
       <div id='bottomnavigation'>
         <ul>
           <li <%= render_active_page 'sabonner' %>><a href='http://t37.net/pages/sabonner>S'abonner</a></li>
-          <li><a href='http://t37.net/files/cv.pdf' title="Mon Curiculum Vitae">C.V.</a></li>
+          <li><a href='http://t37.net/files/cv.pdf' title="Mon Curiculum Vitae">Curriculum vitae.</a></li>
           <li <%= render_active_page 'colophon' %>><a href='http://t37.net/pages/colophon' title="À propos du site et de l'auteur">À propos</a></li>
           <li <%= render_active_archives %>><a href='http://t37.net/articles/archives' title="Lire les archives du site">Articles</a></li>
           <li <%= render_active_index %>><a href='http://t37.net' title="Revenir à l'accueil">Accueil</a></li>
@@ -95,7 +95,7 @@
         <%= link_to "À propos", {:controller => 'articles', :action => 'view_page', :name => 'colophon'} %>
       </dd>
       <dd>
-        <%= link_to "CV", this_blog.base_url + '/files/cv.pdf' %>
+        <%= link_to "Curriculum Vitae", this_blog.base_url + '/files/cv.pdf' %>
       </dd>
       <dd <%= render_active_page 'sabonner' %>>
         <%= link_to "S'abonner", {:controller => 'articles', :action => 'view_page', :name => 'sabonner'} %>
