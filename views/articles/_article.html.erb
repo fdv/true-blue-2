@@ -1,8 +1,8 @@
 <div class="atomentry" id="article-<%= article.id %>">
   <% if (controller.controller_name.include? 'redirect') -%>
-  <div id="adsense_top">
+  <div id="adsense_top" style='display: none;'>
     <script type="text/javascript">
-      display_adsense("pub-4977888525585882", "3292861530", 468, 60, 'adsense_top');
+      display_adsense("pub-4977888525585882", "3292861530", 468, 60, "adsense_top");
     </script>
   </div>
   <h1><%= link_to_permalink(article,article.title) %></h1>
@@ -23,7 +23,7 @@
 
   <div class="content">
    <% if controller.controller_name == 'redirect' -%>
-  <div id="adsense_body">
+  <div id="adsense_body" style='display: none;'>
 <script type="text/javascript">
     display_adsense("pub-4977888525585882", "9956916836", 336, 280, 'adsense_body');
 </script>
