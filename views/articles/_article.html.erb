@@ -2,7 +2,7 @@
   <% if (controller.controller_name.include? 'redirect') -%>
   <div id="adsense_top">
     <script type="text/javascript">
-      display_adsense("pub-4977888525585882", "3292861530", 468, 60);
+      display_adsense("pub-4977888525585882", "3292861530", 468, 60, 'adsense_top');
     </script>
   </div>
   <h1><%= link_to_permalink(article,article.title) %></h1>
@@ -22,10 +22,10 @@
   </p>
 
   <div class="content">
-   <% if controller.controller_name == 'articles' and controller.action_name.include? 'show' -%>
+   <% if controller.controller_name == 'redirect' -%>
   <div id="adsense_body">
 <script type="text/javascript">
-    display_adsense("pub-4977888525585882", "9956916836", 336, 280);
+    display_adsense("pub-4977888525585882", "9956916836", 336, 280, 'adsense_body');
 </script>
   </div>
    <% end %>

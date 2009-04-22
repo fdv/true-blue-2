@@ -9,5 +9,6 @@ function display_adsense(client, slot, width, height, element_id) {
   google_ad_width = width;
   google_ad_height = height;
 
+	$(element_id).style.display = 'block';
    document.write('<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>');
 }
