@@ -1,9 +1,3 @@
-<div id='adsense_sidebar' style='display: none;'>
-  <script type='text/javascript'>
-    display_adsense("pub-4977888525585882", "7699473213", 160, 600, "adsense_sidebar");
-    </script>
-</div>
-
 <h3>Chercher</h3>
 <div id="search" class="sidebarelement">
   <% form_tag({ :controller => 'articles', :action => 'search' },
@@ -13,6 +7,12 @@
     <input type="image" src="http://t37.net/images/search.png" alt="chercher" onclick="$('sform').onsubmit();return false;" />
   </p>
   <% end -%>
+</div>
+
+<div id='adsense_sidebar' style='display: none;'>
+  <script type='text/javascript'>
+    display_adsense("pub-4977888525585882", "6905464558", 300, 250, "adsense_sidebar");
+  </script>
 </div>
 
 <% @navcats ||= Category.find_all_with_article_counters -%>     
