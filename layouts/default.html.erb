@@ -33,8 +33,6 @@
         <%= render :partial => 'shared/general_sidebar' %>
       </div>
       <br class='clear' />
-    </div>
-  </div>
   <div id='footer'>
     <div id='bigfooter'>
       <%= render_sidebars %>
@@ -65,69 +63,70 @@
         </ul>
         <br class='clear' />
       </div>
+      </div>
+      
     </div>
   </div>
-  <div id='nav'>
-    <dl id="nav_articles">
-      <dt>Articles</dt>
-        <dd <%= render_active_archives %>>
-          <%= link_to "Archives", {:controller => 'articles', :action => 'archives'} %>
-        </dd>
-        <dd <%= render_active_categories %>>
-          <%= link_to "Catégories", {:controller => 'categories', :action => 'index'} %>
-        </dd>
-        <dd <%= render_active_tags %>>
-          <%= link_to "Thématiques", {:controller => 'tags', :action => 'index'}%>
-        </dd>
-    </dl>
-    <dl id="nav_downloads">
-      <dt>Téléchargements</dt>
-      <dd <%= render_active_page 'themes' %>>
-        <%= link_to "Thèmes", {:controller => 'articles', :action => 'view_page', :name => 'themes'} %>
+</div>
+<div id='nav'>
+  <dl id="nav_articles">
+    <dt>Articles</dt>
+      <dd <%= render_active_archives %>>
+        <%= link_to "Archives", {:controller => 'articles', :action => 'archives'} %>
       </dd>
+      <dd <%= render_active_categories %>>
+        <%= link_to "Catégories", {:controller => 'categories', :action => 'index'} %>
+      </dd>
+      <dd <%= render_active_tags %>>
+        <%= link_to "Thématiques", {:controller => 'tags', :action => 'index'}%>
+      </dd>
+  </dl>
+  <dl id="nav_downloads">
+    <dt>Téléchargements</dt>
+    <dd <%= render_active_page 'themes' %>>
+      <%= link_to "Thèmes", {:controller => 'articles', :action => 'view_page', :name => 'themes'} %>
+    </dd>
+    <dd>
+      <%= link_to "Typo", 'http://typosphere.org'%>
+    </dd>
+  </dl>
+  <dl id="nav_contact">
+    <dt>Contact</dt>
+    <dd <%= render_active_page 'colophon' %>>
+      <%= link_to "À propos", {:controller => 'articles', :action => 'view_page', :name => 'colophon'} %>
+    </dd>
+    <dd>
+      <%= link_to "Curriculum Vitae", this_blog.base_url + '/files/cv.pdf' %>
+    </dd>
+    <dd <%= render_active_page 'sabonner' %>>
+      <%= link_to "S'abonner", {:controller => 'articles', :action => 'view_page', :name => 'sabonner'} %>
+    </dd>
+  </dl>
+  <dl id="nav_rss">
+    <dt>Flux RSS</dt>
+    <dd><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="external nofollow">
+      Abonnez-vous au flux RSS et suivez les nouveaux articles du site.<br /><img src="http://feeds.feedburner.com/~fc/FredericDeVillamilcom?bg=FBB23C&amp;bg=ffffff&amp;anim=0&amp;label=lecteurs" alt="Lecteurs" />
+    </a></dd>
+  </dl>
+  <form action="http://www.feedburner.com/fb/a/emailverify" 
+    method="post"
+    onsubmit="window.open('http://www.feedburner.com', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+    <dl id="nav_email">
+      <dt>Abonnement email</dt>
+      <dd><label for="form_email">Adresse email</label> <input type="text" id="form_email" name="email"/></dd>
       <dd>
-        <%= link_to "Typo", 'http://typosphere.org'%>
+	      <input type="submit" value="Je m'inscris" />
+        <input type="hidden" value="http://feeds.feedburner.com/~e?ffid=382274" name="url"/>
+    	  <input type="hidden" value="Frederic de Villamil .com" name="title"/>          
       </dd>
     </dl>
-    <dl id="nav_contact">
-      <dt>Contact</dt>
-      <dd <%= render_active_page 'colophon' %>>
-        <%= link_to "À propos", {:controller => 'articles', :action => 'view_page', :name => 'colophon'} %>
-      </dd>
-      <dd>
-        <%= link_to "Curriculum Vitae", this_blog.base_url + '/files/cv.pdf' %>
-      </dd>
-      <dd <%= render_active_page 'sabonner' %>>
-        <%= link_to "S'abonner", {:controller => 'articles', :action => 'view_page', :name => 'sabonner'} %>
-      </dd>
-    </dl>
-    <dl id="nav_rss">
-      <dt>Flux RSS</dt>
-      <dd><a href="http://feeds.feedburner.com/FredericDeVillamilcom" rel="external nofollow">
-        Abonnez-vous au flux RSS et suivez les nouveaux articles du site.<br /><img src="http://feeds.feedburner.com/~fc/FredericDeVillamilcom?bg=FBB23C&amp;bg=ffffff&amp;anim=0&amp;label=lecteurs" alt="Lecteurs" />
-      </a></dd>
-    </dl>
-    <form action="http://www.feedburner.com/fb/a/emailverify" 
-      method="post"
-      onsubmit="window.open('http://www.feedburner.com', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
-      <dl id="nav_email">
-        <dt>Abonnement email</dt>
-        <dd><label for="form_email">Adresse email</label> <input type="text" id="form_email" name="email"/></dd>
-        <dd>
-		<input type="submit" value="Je m'inscris" />
-	      <input type="hidden" value="http://feeds.feedburner.com/~e?ffid=382274" name="url"/>
-      	<input type="hidden" value="Frederic de Villamil .com" name="title"/>          
-	</dd>
-      </dl>
-    </form>
-    </div>
-    <div id="breadcrumb">
-      <ul>
-        <%= render :partial => 'breadcrumb' %>
-      </ul>
-      <br class='clear' /> 
-    </div>
-
+  </form>
+</div>
+<div id="breadcrumb">
+  <ul>
+    <%= render :partial => 'breadcrumb' %>
+  </ul>
+  <br class='clear' /> 
 </div>
   <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
   <script type="text/javascript">
