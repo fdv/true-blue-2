@@ -165,7 +165,7 @@ table {
 #breadcrumb {
 	clear: both;
 	height: 20px;
-	background: #08aed4;
+	background: #000;
 	border-top: #037ba1 1px solid;
 	position : absolute;
 	top : 138px;
@@ -212,7 +212,7 @@ table {
 	clear: none;
 	float: right;
 	width: 300px;
-	margin-left: 20px;
+	margin-right: 20px;
 	padding-top: 40px;
 	font-size: 12px;
 }
@@ -506,24 +506,24 @@ ol#commentList ul li {
 	float: left;
 	width: 990px;
 	clear: both;
-	background: #000;
+	background: #f4e9d0;
 	padding-top: 10px;
 	font-size: 12px;
 	margin-top: 0;
+	color: #898989;
 }
 
 #bigfooter {
 	margin-left: 20px;
 	width: 970px;
-	color: #fff;
 }
 
 #bigfooter h3 {
-	color: #fff;
+	color: #444;
 }
 
 #bigfooter a {
-	color: #fff;
+	color: #444;
 	text-decoration: none;
 }
 
@@ -548,6 +548,7 @@ ol#commentList ul li {
 	margin-left: 20px;
 	padding-left: 20px;
 	border-left: #222 1px solid;
+	color: #444;
 }
 
 #bigfooter ul {
@@ -562,6 +563,7 @@ ol#commentList ul li {
 #bottomnav {
 	height: 40px;
 	padding: 10px 0 0 0;
+	background: #000;
 }
 
 #bottomnav ul {
