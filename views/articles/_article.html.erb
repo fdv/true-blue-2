@@ -17,16 +17,16 @@
     <% if controller.controller_name.include? 'redirect' -%>
     <%= pluralize_comments article.published_comments.size %>
     <% else -%>
-    <%= link_to_permalink(article, pluralize_comments(article.published_comments.size), '',  'nofollow') %>
+    <%= link_to_permalink(article, pluralize_comments(article.published_comments.size), 'comments', ''  'nofollow') %>
     <% end -%>
   </p>
 
   <div class="content">
    <% if controller.controller_name == 'redirect' -%>
   <div id="adsense_body" style='display: none;'>
-<script type="text/javascript">
-    display_adsense("pub-4977888525585882", "9956916836", 336, 280, 'adsense_body');
-</script>
+    <script type="text/javascript">
+      display_adsense("pub-4977888525585882", "9956916836", 336, 280, 'adsense_body');
+    </script>
   </div>
    <% end %>
     <%= article.html(:body) %>
