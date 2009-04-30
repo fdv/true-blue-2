@@ -17,7 +17,7 @@
     <% if controller.controller_name.include? 'redirect' -%>
     <%= pluralize_comments article.published_comments.size %>
     <% else -%>
-    <%= link_to_permalink(article, pluralize_comments(article.published_comments.size), 'comments', ''  'nofollow') %>
+    <%= link_to_permalink(article, pluralize_comments(article.published_comments.size), 'comments', 'nofollow'  'nofollow') %>
     <% end -%>
   </p>
 
