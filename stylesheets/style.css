@@ -15,7 +15,7 @@ blockquote {
 	background: url("../../images/theme/bg_blockquote.gif");
 }
 
-li.accueil {
+li.Home {
 	width: 90px;
 	font-weight: bold;
 	text-align: center;
@@ -280,6 +280,10 @@ input#q {
 	margin: 0;
 }
 
+#nav_email {
+	width: 128px;
+}
+
 #nav_contact {
 	border-right: none;
 }
@@ -293,6 +297,7 @@ input#q {
 
 #nav_email dt {
 	line-height: 16px;
+	margin: 0 0 3px 0;
 }
 
 #nav_rss {
