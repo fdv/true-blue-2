@@ -44,7 +44,6 @@ li.Home {
 	height: 124px;
 	margin-left: -495px;
 	width: 990px;
-	z-index: -100;
 }
 
 #header h1,
@@ -220,10 +219,12 @@ table {
 
 #sidebar h3 { 
 	line-height: 30px;
-	padding: 3px 0 0 0;
+	padding: 3px 0 0 20px;
 	color: #de5026;
 	margin-bottom: 0;
 	font-weight: normal;
+	font-size: 18px	;
+	background: url('../../images/theme/pin.jpg') top left no-repeat;
 }
 
 #sidebar p {
@@ -266,8 +267,11 @@ table {
 
 input#q {
 	font: 13px Arial, Helvetica, sans-serif;
-	border: #969696 1px solid;
-	width: 130px;
+	background: url('../../images/theme/searchfield.png');
+	width: 170px;
+	border: none;
+	padding: 10px 5px;
+	height: 16px;
 }
 
 #menu {
@@ -631,6 +635,13 @@ p.next {
 	text-align: right;
 }
 
-#categories {
+#searchbox {
+	background: url('../../images/theme/postit.jpg') top left no-repeat;
+	margin-left: 15px;
+	padding: 0 0 110px 15px;
+}
 
+#searchbox h3 {
+	background: none;
+	padding-left: 0;
 }

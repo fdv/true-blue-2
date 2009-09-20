@@ -1,0 +1,9 @@
+<div class="atomentry">
+  <h2 class="title">
+    <%= link_to_permalink(article,article.title) %>
+  </h2>
+
+  <div class="content">
+    <%= article.html(:body) %>
+  </div>
+</div>

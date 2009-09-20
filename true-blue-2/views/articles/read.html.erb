@@ -1,0 +1,53 @@
+<!--
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+  rdf:about=""
+  trackback:ping="<%= @article.trackback_url %>"
+  dc:title="<%=h @article.title.gsub(/-+/, '-') %>"
+  dc:identifier="<%= @article.permalink_url %>"
+  dc:description="<%=h (@article.html.strip_html[0..255]).gsub(/-+/, '-') %>"
+  dc:creator="<%= h @article.author %>"
+  dc:date="<%= @article.updated_at.xmlschema %>" />
+</rdf:RDF>
+-->
+
+<%= render :partial => 'article', :object => @article %>
+
+<%= render_similar_posts @article %>
+
+<div id="meta"> 
+  <ul>
+	<li class="metarss"><a rel="nofollow" href="<%= this_blog.base_url + '/' + @article.permalink + '.rss' %>">Flux RSS des commentaires de <em><%= @article.title %></em></a></li>
+	<li class="metapermalink"><a rel="nofollow" title="Utilisez le clic droit de votre souris pour enregistrer l'adresse de ce billet" href="<%= "#{this_blog.base_url}/#{@article.permalink}" %>.html">Lien permanent vers <em><%= @article.title %></em></a></li>
+    <%= content_tag(:li, tag_links(@article), :class => 'metatags') unless @article.tags.empty? %>
+	<%= content_tag(:li, category_links(@article), :class => 'metacategory') unless @article.categories.empty? %>
+	<li class="metacc">Billets et photographies sous licence <a rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">Creative Commons by NC SA</a></li>
+  </ul>
+</div>
+
+<% if @article.allow_comments? or @article.published_comments.size > 0 -%>
+  <h5 class="feedback" id="commentaires">
+    <%= "#{@article.published_comments.size} #{pluralize(@article.published_comments.size, 'commentaire', 'commentaire', 'commentaires')}" %> sur <em><%= @article.title %></em>
+    <a href="#commentform" ref="nofollow"> &raquo;</a>
+  </h5>
+
+  <div id="comments_div">
+    <%= render :partial => "comment_list" %>
+  </div>
+<% end -%>
+
+<%= render :partial => 'comment_form' if @article.allow_comments? %>
+
+<% if @article.allow_pings? -%>
+  <h5 class="feedback" id="trackbacks">Trackbacks sur <em><%= @article.title %></em></h5>
+  <p>Les trackbacks sont ferm&eacute;s pour cause de spam.</p>
+  <% unless @article.published_trackbacks.blank? -%>
+  <ol id="trackbacks" class="trackbacks">
+    <%= render(:partial => "trackback", :collection => @article.published_trackbacks) %>
+  </ol>
+  <% end -%>
+<% end -%>
+

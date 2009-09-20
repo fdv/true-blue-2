@@ -1,0 +1,2 @@
+<%= render :partial => 'article', :collection => @articles %>
+<%= will_paginate @articles, { :previous_label => 'Précédent', :next_label => 'Suivant'  } %>

@@ -1,0 +1,23 @@
+<% form_tag @article.comment_url do %>
+
+	<h5 class="feedback"><%= @article.published_comments.size > 0 ? 'Commenter' : 'Soyez le premier à commenter'%> <em><%=@article.title%></em></h5>
+	<p>Merci de vous exprimer dans un français correct. Les commentaires déplacés, injurieux et le spam seront supprimés.</p>
+	<p>
+      	<%= text_field "comment", "author" %>
+		<label for="comment_author">Nom (obligatoire)</label>
+	</p>
+	<p>
+		<%= text_field "comment", "email" %>
+		<label for="comment_email">Email (obligatoire, ne sera jamais révélé)</label>
+  	</p>
+  	<p>
+		<%= text_field "comment", "url" %>
+		<label for="comment_url">Site web</label>
+  	</p>
+	<p>
+		<%= text_area 'comment', 'body' %>
+	</p>
+	<p>
+    <%= submit_tag 'Valider', :id => 'form-submit-button', :class => 'submit' %>
+  </p>
+<% end %>

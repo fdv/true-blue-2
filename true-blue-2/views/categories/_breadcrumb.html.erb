@@ -1,0 +1,13 @@
+<% 
+breadcrumb = "#{link_to("Accueil", {:controller => "articles", :action => "index"}, :title => "Cliquez pour revenir à l'accueil")} &gt; "
+
+if params[:id]
+  breadcrumb << link_to("Catégories", { :controller => "categories", :action => "index" }, :title => "Cliquez pour voir la liste des thématiques traitées sur le site") 
+  mycategory = Category.find_by_permalink(params[:id])
+  breadcrumb << " &gt; #{mycategory.display_name}"
+else
+  breadcrumb << "Catégories"
+end
+%>
+
+<%= content_tag(:li, breadcrumb)%>

@@ -1,0 +1,11 @@
+<% unless sidebar.tags.blank? -%>
+<h3><%= _("Thématiques")%></h3>
+<div class="sidebarelement">
+<p>Cliquez sur un lien pour lire les billets traitant de la thématique associée.</p>
+<p style="overflow:hidden; font-size: 14px;">
+<% sidebar.tags.each do |tag| -%>
+<span style="font-size:<%= sidebar.sizes[tag] %>%"><%= link_to tag.display_name, "#{tag.permalink_url}/", {:title => "Cliquez pour lire les billets traitant de #{tag.display_name}"} %></span>,
+<% end -%>
+</p>
+</div>
+<% end %>

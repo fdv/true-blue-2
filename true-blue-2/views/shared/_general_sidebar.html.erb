@@ -1,12 +1,13 @@
-<h3>Chercher</h3>
-<div id="search" class="sidebarelement">
+<div id='searchbox'>
+  <h3>Chercher</h3>
+  <div id="search" class="sidebarelement">
   <% form_tag({ :controller => 'articles', :action => 'search' },
               { :method => 'get', :id => 'sform' }) do -%>
   <p>
-    <input type="text" id="q" name="q" value="" />
-    <input type="image" src="http://t37.net/images/search.png" alt="chercher" onclick="$('sform').onsubmit();return false;" />
+    <input type="text" id="q" name="q" value="" /><br />
   </p>
   <% end -%>
+  </div>
 </div>
 
 <h3>À propos</h3>
